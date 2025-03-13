@@ -10,6 +10,13 @@
       type="text/css"
     />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <style>
+      .active {
+        background-color: #ff1f3d;
+        color: white;
+      }
+    </style>
   </head>
   <body>
     <header>
@@ -17,7 +24,25 @@
         class="w-11/12 mx-auto flex justify-between border-b-2 border-gray-200 py-5"
       >
         <img src="Logo.png" alt="" />
-        <button class="btn">Sort by view</button>
+        <label class="input">
+          <svg
+            class="h-[1em] opacity-50"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+          >
+            <g
+              stroke-linejoin="round"
+              stroke-linecap="round"
+              stroke-width="2.5"
+              fill="none"
+              stroke="currentColor"
+            >
+              <circle cx="11" cy="11" r="8"></circle>
+              <path d="m21 21-4.3-4.3"></path>
+            </g>
+          </svg>
+          <input id="search-input" type="search" required placeholder="Search" />
+        </label>
         <button class="btn bg-[#FF1F3D] text-white">Blog</button>
       </nav>
     </header>
@@ -25,8 +50,9 @@
       <div id="category-container" class="flex justify-center gap-5 py-5">
         <div>
           <button
+            id="all"
             onclick="loadVideos()"
-            class="btn btn-sm bg-[#FF1F3D] text-white px-4"
+            class="btn btn-sm hover:bg-[#FF1F3D] hover:text-white px-4"
           >
             All
           </button>
@@ -34,11 +60,28 @@
       </div>
 
       <section id="video-container" class="grid grid-cols-4 gap-5">
-        <div class=" col-span-full flex flex-col items-center justify-center py-24">
-          <img class="w-[120px] " src="Icon.png" alt="">
-          <h2 class="font-bold text-3xl pt-8 text-center">Oops!!!Sorry there is no content</h2>
+        <div
+          class="col-span-full flex flex-col items-center justify-center py-24"
+        >
+          <img class="w-[120px]" src="Icon.png" alt="" />
+          <h2 class="font-bold text-3xl pt-8 text-center">
+            Oops!!!Sorry there is no content
+          </h2>
         </div>
       </section>
+      <!-- Open the modal using ID.showModal() method -->
+      <!-- <button class="btn" onclick="my_modal_1.showModal()">open modal</button> -->
+      <dialog id="video_details" class="modal">
+        <div class="modal-box">
+          <div id="details-contianer"></div>
+          <div class="modal-action">
+            <form method="dialog">
+              <!-- if there is a button in form, it will close the modal -->
+              <button class="btn">Close</button>
+            </form>
+          </div>
+        </div>
+      </dialog>
     </main>
     <script src="scripts/index.js"></script>
   </body>
