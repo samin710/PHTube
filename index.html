@@ -1,11 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
-    
-</body>
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@5"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  </head>
+  <body>
+    <header>
+      <nav
+        class="w-11/12 mx-auto flex justify-between border-b-2 border-gray-200 py-5"
+      >
+        <img src="Logo.png" alt="" />
+        <button class="btn">Sort by view</button>
+        <button class="btn bg-[#FF1F3D] text-white">Blog</button>
+      </nav>
+    </header>
+    <main class="w-11/12 mx-auto">
+      <div id="category-container" class="flex justify-center gap-5 py-5">
+        <div>
+          <button
+            onclick="loadVideos()"
+            class="btn btn-sm bg-[#FF1F3D] text-white px-4"
+          >
+            All
+          </button>
+        </div>
+      </div>
+
+      <section id="video-container" class="grid grid-cols-4 gap-5">
+        <div class=" col-span-full flex flex-col items-center justify-center py-24">
+          <img class="w-[120px] " src="Icon.png" alt="">
+          <h2 class="font-bold text-3xl pt-8 text-center">Oops!!!Sorry there is no content</h2>
+        </div>
+      </section>
+    </main>
+    <script src="scripts/index.js"></script>
+  </body>
 </html>
